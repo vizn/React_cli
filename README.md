@@ -13,7 +13,7 @@
   version 1.0.1</a>
 </p>
 
-##Description
+## Description
 
 React作为一个前端核心库，建立了良好的JS库生态，出现了大量的第三方JS库用来支持React构建适合自己项目的框架。这个脚手架使用redux、react-router、immutable、babel和webpack等构建了一个MVVM模式的React，wepack配置趋向于移动端开发，当然也兼容PC端，但对于PC端低版本浏览器未进行兼容，UI库引用了antd-mobile并配置了按需加载。本脚手架适用于构建逻辑较为复杂、前后端分离、模块化开发的大中型项目
 
@@ -24,7 +24,7 @@ npm install
 
 ## Packages
 
-使用的几个关键库与相关查看
+使用的几个关键库与相关参考
 
 | Package | Version | Docs | Description |
 |---------|---------|------|-------------|

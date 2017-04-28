@@ -1,12 +1,12 @@
 
-##开发环境
+## 开发环境
 * macOS
 * [node](https://nodejs.org/en/download/)
 * [npm](https://docs.npmjs.com/getting-started/installing-node)
 * [atom](https://atom.io/)
 注：如连接无法打开请使用代理
 
-##构建好的目录
+## 构建好的目录
 
 ```
 react_cli
@@ -27,7 +27,7 @@ react_cli
 ├── package.json
 ├── webpack.config.js
 ```
-##npm初始化package.json
+## npm初始化package.json
 
 ```
 ➜ mkdir react-cli       #新建项目文件夹
@@ -46,7 +46,7 @@ license: (ISC)
 ```
 根据提示输入内容，也可以直接回车，然后在package.json文件中修改
 
-##安装React，基础框架
+## 安装React，基础框架
 
 ```
 ➜ npm install --save react react-dom
@@ -54,7 +54,7 @@ license: (ISC)
 ├── react@15.4.1
 ├── react-dom@15.4.1
 ```
-##安装webpack和webpack-dev-server
+## 安装webpack和webpack-dev-server
 
 ```
 ➜ npm install --save webpack webpack-dev-server
@@ -62,7 +62,7 @@ license: (ISC)
 ├── webpack@2.3.2 #用于将代码整体打包压缩输出的工具
 ├── webpack-dev-server@2.4.2 #用于开发模式代码调试与热更新
 ```
-##安装配置webpack用到的库
+## 安装配置webpack用到的库
 
 * babel相关的库，用来打包编译转换为目前主流浏览器支持的JS语法
 
@@ -102,7 +102,7 @@ license: (ISC)
 ├── html-webpack-plugin@2.28.0
 ```
 
-##创建并配置webpack.config.js
+## 创建并配置webpack.config.js
 
 ```
 ➜ atom webpack.config.js
@@ -171,7 +171,7 @@ module.exports= {
 更多babel配置查看[https://babeljs.io/](https://babeljs.io/)
 
 
-##安装Redux及相关组件
+## 安装Redux及相关组件
 ```
 npm install --save react-redux
 npm install --save redux redux-thunk redux-logger
@@ -179,14 +179,14 @@ npm install --save redux-immutablejs immutable
 ```
 关于immutable的使用请参考[http://www.jianshu.com/p/dec712858b27](http://www.jianshu.com/p/dec712858b27)
 
-##定义Action`s type
+## 定义Action`s type
 在目录src/redux/constants下新建index.js
 
 ```
 export const EXAMPLE = 'EXAMPLE'
 ```
 
-##定义reducer
+## 定义reducer
 在目录src/redux/reducers下新建index.js
 
 ```
@@ -216,7 +216,7 @@ export default rootReducer
 ```
 
 
-##生成store对象用于管理react中的state
+## 生成store对象用于管理react中的state
 
 在目录src/redux/configureStore下新建index.js
 
@@ -282,7 +282,7 @@ export function changeTitle(val){
 redux框架的设计原理参考[http://www.jianshu.com/p/ec820d8581cd](http://www.jianshu.com/p/ec820d8581cd)
 
 
-##安装react-router
+## 安装react-router
 基础路由库
 
 ```
@@ -290,14 +290,14 @@ npm install --save react-router
 ```
 使用文档:[https://github.com/ReactTraining/react-router](https://github.com/ReactTraining/react-router)
 
-##安装react-router-redux
+## 安装react-router-redux
 ```
 npm install --save react-router-redux
 ```
 
 使用文档:[https://github.com/reactjs/react-router-redux](https://github.com/reactjs/react-router-redux)
 
-##Redux 配合 react-router 使用
+## Redux 配合 react-router 使用
 history + store (redux) → react-router-redux → enhanced history → react-router
 
 src/containers/rootRoutes.jsx
@@ -405,7 +405,7 @@ export default connect(
 
 ```
 
-##在package.json中添加
+## 在package.json中添加
 
 ```
 "scripts": {
@@ -419,5 +419,5 @@ export default connect(
 	➜ npm start
 
 
-##结束
+## 结束
 至此，我们使用webpack, babel, redux, react-router及相关库构建了基于React的脚手架。
