@@ -1,3 +1,21 @@
+## 目录
+* [开发环境](#开发环境)
+* [构建好的目录](#构建好的目录)
+* [npm初始化package.json](#npm初始化package.json)
+* [安装React基础框架](#安装React，基础框架)
+* [安装webpack和webpack-dev-server](#安装webpack和webpack-dev-server)
+* [创建并配置webpack.config.js](#创建并配置webpack.config.js)
+* [定义ActionType](#定义ActionType)
+* [定义reducer](#定义reducer)
+* [生成store对象用于管理react中的state](#生成store对象用于管理react中的state)
+* [生成store对象用于管理react中的state](#生成store对象用于管理react中的state)
+* [编辑actions](#编辑actions)
+* [安装react-router](#安装react-router)
+* [Redux配合react-router使用](#Redux配合react-router使用)
+* [写一个使用了store数据的React组件](#写一个使用了store数据的React组件)
+* [在package.json中添加scripts](#在package.json中添加scripts)
+* [结束](#结束)
+
 
 ## 开发环境
 * macOS
@@ -46,7 +64,7 @@ license: (ISC)
 ```
 根据提示输入内容，也可以直接回车，然后在package.json文件中修改
 
-## 安装React，基础框架
+## 安装React基础框架
 
 ```
 ➜ npm install --save react react-dom
@@ -179,7 +197,7 @@ npm install --save redux-immutablejs immutable
 ```
 关于immutable的使用请参考[http://www.jianshu.com/p/dec712858b27](http://www.jianshu.com/p/dec712858b27)
 
-## 定义Action`s type
+## 定义ActionType
 在目录src/redux/constants下新建index.js
 
 ```
@@ -256,7 +274,7 @@ export default configureStore(initialState) {
 ```
 代码中使用了redux中的createStore方法用于生成store对象和applyMiddleware方法用于redux中间件，中间件使用了redux-thunk用于actions扩展，也就是上一节我们留下的一个疑问。actions中除了可以写包含type属性的对象外，使用thunk中间件后可以在actions写业务数据逻辑，
 
-##编辑actions
+## 编辑actions
 在src/redux/actions目录下新建example.js
 
 ```
@@ -297,7 +315,7 @@ npm install --save react-router-redux
 
 使用文档:[https://github.com/reactjs/react-router-redux](https://github.com/reactjs/react-router-redux)
 
-## Redux 配合 react-router 使用
+## Redux配合react-router使用
 history + store (redux) → react-router-redux → enhanced history → react-router
 
 src/containers/rootRoutes.jsx
@@ -360,7 +378,7 @@ export default configureStore
 ```
 更多react-router使用方法查看[https://github.com/ReactTraining/react-router](https://github.com/ReactTraining/react-router)
 
-##最后我们来写一个使用了store数据的React组件
+## 写一个使用了store数据的React组件
 src/containers/example.jsx
 ```
 
@@ -405,7 +423,7 @@ export default connect(
 
 ```
 
-## 在package.json中添加
+## 在package.json中添加scripts
 
 ```
 "scripts": {
