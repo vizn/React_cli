@@ -1,10 +1,10 @@
 ## 目录
 * [开发环境](#开发环境)
 * [构建好的目录](#构建好的目录)
-* [npm初始化package.json](#npm初始化package.json)
-* [安装React基础框架](#安装React，基础框架)
+* [npm初始化package.json](#npm初始化packagejson)
+* [安装React基础框架](#安装React基础框架)
 * [安装webpack和webpack-dev-server](#安装webpack和webpack-dev-server)
-* [创建并配置webpack.config.js](#创建并配置webpack.config.js)
+* [创建并配置webpack.config.js](#创建并配置webpackconfigjs)
 * [定义ActionType](#定义ActionType)
 * [定义reducer](#定义reducer)
 * [生成store对象用于管理react中的state](#生成store对象用于管理react中的state)
@@ -13,7 +13,7 @@
 * [安装react-router](#安装react-router)
 * [Redux配合react-router使用](#Redux配合react-router使用)
 * [写一个使用了store数据的React组件](#写一个使用了store数据的React组件)
-* [在package.json中添加scripts](#在package.json中添加scripts)
+* [在package.json中添加scripts](#在packagejson中添加scripts)
 * [结束](#结束)
 
 
