@@ -94,6 +94,11 @@ module.exports= {
   },
   devtool: devtool, //开发环境
   devServer: {
+    historyApiFallback: {
+      rewrites: [
+        { from: /$uri/, to: '/index.html' }
+      ]
+    },
     compress: true, // 启用Gzip压缩
     hot: true, // 模块热更新，配置HotModuleReplacementPlugin
     https: false, // 适用于ssl安全证书网站
