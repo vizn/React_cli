@@ -4,6 +4,8 @@ import { Router, Route, browserHistory} from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 
 import Example from './example'
+import Ex from './ex'
+
 export default class Root extends Component{
 	render(){
 		const {store} = this.props
@@ -12,7 +14,8 @@ export default class Root extends Component{
 			<Provider store={store}>
 			  <div>
 			    <Router history={history}>
-						<Route path="/*" component={Example}/>
+						<Route path="/ex/am" component={Example}/>
+						<Route path="/" component={Ex}/>
 			    </Router>
 			  </div>
 			</Provider>

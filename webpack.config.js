@@ -8,6 +8,7 @@ var CompressionPlugin = require('compression-webpack-plugin')
 
 var APP_PATH = path.resolve(__dirname, 'src');
 var BUILD_PATH = path.resolve(__dirname, 'build');
+var PublicPath = '/';
 var devtool = 'eval-source-map';
 var plugins = [
     new HtmlwebpackPlugin({
@@ -22,7 +23,7 @@ var plugins = [
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendors',
-      filename: './assets/js/vendors.min.js?[hash:6]',
+      filename: 'assets/js/vendors.min.js?[hash:6]',
       minChunks: 2,
     }),
     new webpack.optimize.UglifyJsPlugin({
@@ -39,7 +40,7 @@ var plugins = [
 			threshold: 10240,
 			minRatio: 0.8
 		}),
-    new ExtractTextPlugin("./assets/style/[name].css"),
+    new ExtractTextPlugin("assets/styles/[name].css"),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new webpack.HotModuleReplacementPlugin(),
   ]
@@ -59,8 +60,9 @@ module.exports= {
     vendors: ['react', 'react-dom', 'react-router', 'react-router-redux', 'redux', 'redux-thunk', 'redux-immutablejs']
   },
   output: {
+    publicPath: PublicPath,
     path: BUILD_PATH,
-    filename: './assets/js/[name].js?[hash:6]'
+    filename: 'assets/js/[name].js?[hash:6]'
   },
   //babel重要的loader在这里
   module: {
