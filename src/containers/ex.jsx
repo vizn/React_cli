@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import { Modal, Button, WingBlank, WhiteSpace, Toast } from 'antd-mobile'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as Actions from 'Actions'
+import * as Actions from '../redux/actions/'
 
 class Ex extends Component {
   constructor(props) {

@@ -34,13 +34,16 @@ var plugins = [
       }
     }),
     new CompressionPlugin({ //Gzip压缩
-			asset: "[path].gz[query]",
-			algorithm: "gzip",
-			test: /\.(js|html)$/,
-			threshold: 10240,
-			minRatio: 0.8
-		}),
-    new ExtractTextPlugin("assets/styles/[name].css"),
+      asset: "[path].gz",
+      algorithm: "gzip",
+      test: /\.(js|html)$/,
+      threshold: 10240,
+      minRatio: 0.8
+    }),
+    new ExtractTextPlugin({
+      filename: "[name].css?[hash:6]",
+      disable: process.env.NODE_ENV === "development"
+    }),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new webpack.HotModuleReplacementPlugin(),
   ]
@@ -51,18 +54,30 @@ if (process.argv.indexOf('-p') > -1) {
       }
   }));
   devtool = false;
+  PublicPath = 'https://static.jyall.com/jywk/'
 }
 
 module.exports= {
   context: APP_PATH,
   entry:  {
     app: './app.jsx',
-    vendors: ['react', 'react-dom', 'react-router', 'react-router-redux', 'redux', 'redux-thunk', 'redux-immutablejs']
+    vendors: [
+      'zscroller',
+      'whatwg-fetch',
+      'react',
+      'react-dom',
+      'react-router',
+      'react-router-redux',
+      'redux',
+      'redux-thunk',
+      'redux-immutablejs'
+    ]
   },
   output: {
     publicPath: PublicPath,
     path: BUILD_PATH,
-    filename: 'assets/js/[name].js?[hash:6]'
+    filename: 'assets/js/[name].js?[hash:6]',
+    chunkFilename: "assets/js/[name].js?[hash:6]"
   },
   //babel重要的loader在这里
   module: {
@@ -72,20 +87,43 @@ module.exports= {
         use: 'svg-sprite-loader'
       },
       {
-        test: /\.(less|scss|css)$/,
+        test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
             'css-loader?importLoaders=1',
-            'sass-loader',
-            'less-loader',
-            'px2rem-loader?remUnit=100&minSize=1&ignore=border|margin|padding' //移动端rem适配
+            'px2rem-loader?remUnit=100', //移动端rem适配
+            'postcss-loader',
           ]
         })
       },
       {
-        test: /\.(png|jpg)$/,
-        use: 'url?limit=8192&name=[name].[ext]'
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader?importLoaders=1',
+            'px2rem-loader?remUnit=100', //移动端rem适配
+            'postcss-loader',
+            'sass-loader'
+          ]
+        })
+      },
+      {
+        test: /\.less$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader?importLoaders=1',
+            'px2rem-loader?remUnit=100', //移动端rem适配
+            'postcss-loader',
+            'less-loader',
+          ]
+        })
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: 'url-loader?limit=8192&name=assets/images/[name].[ext]'
       },
       {
         test: /\.(js|jsx)$/,
@@ -104,10 +142,10 @@ module.exports= {
     compress: true, // 启用Gzip压缩
     hot: true, // 模块热更新，配置HotModuleReplacementPlugin
     https: false, // 适用于ssl安全证书网站
-    noInfo: true, // 只在热加载错误和警告
+    noInfo: false, // 只在热加载错误和警告
     proxy: {
-      "/api/": {
-        target: "https://api.m.jyall.com",
+      "/v1/data/*": {
+        target: "http://10.10.32.156",
         secure: false
       }
     }
@@ -116,7 +154,8 @@ module.exports= {
       extensions: ['.web.js','.js', '.jsx', '.json', '.css', '.less' , '.scss'],//后缀名自动补全
       alias: {
           Styles: path.resolve(__dirname, 'src/assets/styles/'),
-          Actions: path.resolve(__dirname, 'src/redux/actions/')
+          Actions: path.resolve(__dirname, 'src/redux/actions/'),
+          Config: path.resolve(__dirname, 'src/config/')
       }
   },
   plugins: plugins
