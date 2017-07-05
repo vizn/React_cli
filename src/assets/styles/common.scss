@@ -1,2 +1,78 @@
-html {
+html{
+  font-size: 50PX;
+  overflow: hidden;
+}
+/*页面切换动画过渡*/
+.mainAnimation {
+	position:relative;
+	animation: rightMove 0.3s forwards;
+}
+@keyframes rightMove {
+	from {right:-1000px;}
+	to {right:0;}
+}
+
+@-webkit-keyframes rightMove { /*Safari and Chrome*/
+	from {right:-1000px;}
+	to {right:0;}
+}
+.mainAnimation_leftToRight {
+	position:relative;
+	animation: leftMove 0.3s forwards;
+}
+@keyframes leftMove {
+	from {left:-1000px;}
+	to {left:0;}
+}
+
+@-webkit-keyframes leftMove { /*Safari and Chrome*/
+	from {left:-1000px;}
+	to {left:0;}
+}
+
+body{
+  font-size: 32px;
+  font-family: Arial,"微软雅黑" !important;
+  background-color: #F3F3F3 !important;
+  user-select:none;
+}
+body, div, dl, dt, dd, ul, ol, li, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td, section, article, aside, header, footer, nav, dialog, figure, hgroup {
+	margin:0;
+	padding:0;
+}
+h1, h2, h3, h4, h5, h6 {
+	margin:0;
+	padding:0;
+	font-size:100%;
+}
+ul, ol, li {
+	list-style:none;
+}
+em, i {
+	font-style:normal;
+}
+img {
+	border:0;
+}
+input, img {
+	vertical-align:middle;
+}
+a, a:active, a:focus, a:hover, a:link, a:visited {
+	display: block;
+	text-decoration:none;
+}
+.back2top {
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  text-align: center;
+  line-height: 128px;
+  // transform: rotate(90deg);
+  color: #fff;
+  z-index: 99;
+}
+.hide {
+    display: none !important;
 }
