@@ -1,7 +1,7 @@
 
 <p align="center">
   <a href="https://reacttraining.com/react-router/">
-    <img alt="react-router" src="http://reactjs.cn/react/img/logo.svg" width="144">
+    <img alt="react-router" src="https://facebook.github.io/react/img/logo.svg" width="144">
   </a>
 </p>
 
