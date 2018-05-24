@@ -47,16 +47,6 @@ class Example extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    example: state.example.toJS()
-  }
-}
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(Actions, dispatch)
-  }
-}
 export default connect(
   mapStateToProps, mapDispatchToProps
 )(Example)

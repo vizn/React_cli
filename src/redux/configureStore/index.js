@@ -5,8 +5,8 @@ import {
 import thunk from 'redux-thunk';
 import reducer from '../reducers';
 import { createLogger } from 'redux-logger';
-import { routerMiddleware} from 'react-router-redux'
-import { browserHistory} from 'react-router'
+import { routerMiddleware } from 'react-router-redux'
+import { browserHistory } from 'react-router'
 
 const middleware = routerMiddleware(browserHistory)
 const logger = createLogger({

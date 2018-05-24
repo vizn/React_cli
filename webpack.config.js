@@ -54,7 +54,7 @@ if (process.argv.indexOf('-p') > -1) {
       }
   }));
   devtool = false;
-  PublicPath = 'https://static.jyall.com/jywk/'
+  PublicPath = 'https://static.jyall.com/bbzf/'
 }
 
 module.exports= {

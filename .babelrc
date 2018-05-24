@@ -1,18 +1,33 @@
-
+//在开发的时候才启用HMR和Catch Error
 {
   "presets": ["stage-3","react", "es2015", "env"],
   "env": {
     "development": {
+      "presets": ["react-hmre"],
       "plugins": [
-        ["transform-async-to-generator"],
+        ["react-transform", {
+          "transforms": [{
+            "transform": "react-transform-hmr",
+            "imports": ["react"],
+            "locals": ["module"]
+          }, {
+            "transform": "react-transform-catch-errors",
+            "imports": ["react", "redbox-react"]
+          }]
+        }],
+        ["transform-runtime", {
+          "helpers": false,
+          "polyfill": false,
+          "regenerator": true,
+          "moduleName": "babel-runtime"
+        }],
         ["transform-class-properties"],
         ["import", { "libraryName": "antd-mobile", "style": "css" }]
       ]
     },
     "production":{
       "plugins": [
-        ["add-module-exports"],
-        ["transform-async-to-generator"],
+        ["transform-runtime"],
         ["transform-class-properties", { "spec": true }],
         ["import", { "libraryName": "antd-mobile", "style": "css" }]
       ]
